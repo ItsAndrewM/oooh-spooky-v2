@@ -1,61 +1,94 @@
+import { XMLParser } from "fast-xml-parser";
+
 export interface Episode {
-  guid: string
-  title: string
-  description: string
-  pubDate: string
-  enclosure?: {
-    url: string
-    type: string
-    length: string
-  }
-  image?: string
+	guid: string;
+	title: string;
+	description: string;
+	pubDate: string;
+	enclosure?: {
+		url: string;
+		type: string;
+		length: string;
+	};
+	image?: string;
+}
+
+interface PodcastItem {
+	title?: string;
+	description?: string;
+	pubDate?: string;
+	guid?: { "#text": string } | string;
+	enclosure?: {
+		"@_url": string;
+		"@_type": string;
+		"@_length": string;
+	};
+	"itunes:image"?: {
+		"@_href": string;
+	};
 }
 
 export async function getPodcastEpisodes(): Promise<Episode[]> {
-  try {
-    const response = await fetch("https://ooohspooky.libsyn.com/rss", { next: { revalidate: 3600 } })
-    const text = await response.text()
+	try {
+		const response = await fetch("https://ooohspooky.libsyn.com/rss", {
+			next: { revalidate: 3600 },
+		});
+		const text = await response.text();
 
-    // Parse the XML
-    const parser = new DOMParser()
-    const xmlDoc = parser.parseFromString(text, "text/xml")
+		// Parse the XML using fast-xml-parser
+		const parser = new XMLParser({
+			ignoreAttributes: false,
+			attributeNamePrefix: "@_",
+		});
+		const result = parser.parse(text);
 
-    const items = xmlDoc.querySelectorAll("item")
-    const episodes: Episode[] = []
+		// Extract episodes from the parsed XML
+		const items = result.rss.channel.item || [];
+		const episodes: Episode[] = [];
 
-    items.forEach((item) => {
-      const title = item.querySelector("title")?.textContent || ""
-      const description = item.querySelector("description")?.textContent || ""
-      const pubDate = item.querySelector("pubDate")?.textContent || ""
-      const guid = item.querySelector("guid")?.textContent || Math.random().toString()
+		// Ensure items is always an array
+		const itemsArray = Array.isArray(items) ? items : [items];
 
-      const enclosure = item.querySelector("enclosure")
-      let enclosureData = undefined
+		itemsArray.forEach((item: PodcastItem) => {
+			const title = item.title || "";
+			const description = item.description || "";
+			const pubDate = item.pubDate || "";
 
-      if (enclosure) {
-        enclosureData = {
-          url: enclosure.getAttribute("url") || "",
-          type: enclosure.getAttribute("type") || "",
-          length: enclosure.getAttribute("length") || "",
-        }
-      }
+			// Handle different guid formats
+			let guid: string;
+			if (typeof item.guid === "object" && item.guid && "#text" in item.guid) {
+				guid = item.guid["#text"];
+			} else if (typeof item.guid === "string") {
+				guid = item.guid;
+			} else {
+				guid = Math.random().toString();
+			}
 
-      // Try to get image from itunes:image
-      const image = item.querySelector("itunes\\:image")?.getAttribute("href") || ""
+			let enclosureData = undefined;
+			if (item.enclosure) {
+				enclosureData = {
+					url: item.enclosure["@_url"] || "",
+					type: item.enclosure["@_type"] || "",
+					length: item.enclosure["@_length"] || "",
+				};
+			}
 
-      episodes.push({
-        guid,
-        title,
-        description,
-        pubDate,
-        enclosure: enclosureData,
-        image,
-      })
-    })
+			// Try to get image from itunes:image
+			const image = item["itunes:image"]?.["@_href"] || "";
 
-    return episodes
-  } catch (error) {
-    console.error("Error fetching podcast feed:", error)
-    return []
-  }
+			episodes.push({
+				guid,
+				title,
+				description,
+				pubDate,
+				enclosure: enclosureData,
+				image,
+			});
+		});
+
+		return episodes;
+	} catch (error) {
+		console.error("Error fetching podcast feed:", error);
+		return [];
+	}
 }
