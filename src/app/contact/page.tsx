@@ -4,10 +4,30 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ContactForm from "@/components/contact-form";
 import { Mail, MessageSquare, MapPin } from "lucide-react";
+import { FAQJsonLd } from "../components/json-ld";
 
 export default function ContactPage() {
+	const faqQuestions = [
+		{
+			question: "How can I support the podcast?",
+			answer:
+				"The best way to support us is by joining our Patreon. You'll get access to exclusive content and help us continue making the podcast.",
+		},
+		{
+			question: "How often do you release new episodes?",
+			answer:
+				"We release new episodes of Oooh, Spooky every week, usually on Thursdays.",
+		},
+		{
+			question: "Can I be a guest on the podcast?",
+			answer:
+				"We occasionally have guests on the podcast. If you're interested, please send us a message using the contact form with details about yourself and why you'd be a great guest.",
+		},
+	];
+
 	return (
 		<main className="min-h-screen flex flex-col">
+			<FAQJsonLd questions={faqQuestions} />
 			<Header />
 
 			<div className="container mx-auto px-4 py-12">

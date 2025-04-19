@@ -3,6 +3,28 @@ import Footer from "@/components/footer";
 import HostsSection from "@/components/hosts-section";
 import { Facebook, Instagram, Twitter, Rss } from "lucide-react";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "About | Oooh, Spooky Podcast",
+	description:
+		"Learn about Oooh, Spooky - the comedy podcast hosted by Adam Knox, Luka Muller, and Peter Jones exploring mysterious and unexplained phenomena.",
+	keywords: [
+		"about Oooh Spooky",
+		"comedy podcast",
+		"Adam Knox",
+		"Luka Muller",
+		"Peter Jones",
+		"unexplained mysteries podcast",
+	],
+	openGraph: {
+		title: "About | Oooh, Spooky Podcast",
+		description:
+			"Learn about Oooh, Spooky - the comedy podcast hosted by Adam Knox, Luka Muller, and Peter Jones exploring mysterious and unexplained phenomena.",
+		url: "https://ooohspooky.com/about",
+		type: "website",
+	},
+};
 
 export default function AboutPage() {
 	return (

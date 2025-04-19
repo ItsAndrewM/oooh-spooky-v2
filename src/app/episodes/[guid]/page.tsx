@@ -5,10 +5,70 @@ import { formatDate } from "@/lib/utils";
 import { Play } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
 
 type Params = Promise<{
 	guid: string;
 }>;
+
+// Generate dynamic metadata for each episode
+export async function generateMetadata({
+	params,
+}: {
+	params: { guid: string };
+}): Promise<Metadata> {
+	const episodes = await getPodcastEpisodes();
+	const episode = episodes.find((ep) => ep.guid === params.guid);
+
+	if (!episode) {
+		return {
+			title: "Episode Not Found | Oooh, Spooky Podcast",
+			description: "The requested episode could not be found.",
+		};
+	}
+
+	// Strip HTML tags from description for clean meta description
+	const stripHtml = (html: string) => {
+		return html?.replace(/<[^>]*>?/gm, "") || "";
+	};
+
+	const cleanDescription = stripHtml(episode.description || "").substring(
+		0,
+		160
+	);
+
+	return {
+		title: `${episode.title} | Oooh, Spooky Podcast`,
+		description: cleanDescription,
+		keywords: [
+			"Oooh Spooky",
+			"podcast episode",
+			"comedy horror",
+			episode.title,
+		],
+		openGraph: {
+			title: episode.title,
+			description: cleanDescription,
+			url: `https://ooohspooky.com/episodes/${episode.guid}`,
+			type: "article",
+			images: [
+				{
+					url: episode.image || "/oooh-spooky.png",
+					width: 1200,
+					height: 630,
+					alt: episode.title,
+				},
+			],
+			publishedTime: episode.pubDate,
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: episode.title,
+			description: cleanDescription,
+			images: [episode.image || "/oooh-spooky.png"],
+		},
+	};
+}
 
 export default async function EpisodeDetailPage({
 	params,

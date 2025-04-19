@@ -6,15 +6,58 @@ import Footer from "@/components/footer";
 import PodcastList from "@/components/podcast-list";
 import HeroBanner from "@/components/hero-banner";
 import PodcastGrid from "@/components/podcast-grid";
-import FeaturedVideos from "@/components/featured-videos";
+// import FeaturedVideos from "@/components/featured-videos";
 import HostsSection from "@/components/hosts-section";
 import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
+import { PodcastJsonLd, OrganizationJsonLd } from "./components/json-ld";
+
+export const metadata: Metadata = {
+	title: "Oooh, Spooky - The Comedy Horror Podcast",
+	description:
+		"Listen to Oooh, Spooky - the #1 comedy horror podcast hosted by Adam Knox, Luka Muller and Peter Jones. New episodes weekly!",
+	keywords: [
+		"horror comedy podcast",
+		"Oooh Spooky",
+		"scary stories",
+		"comedy podcast",
+		"Adam Knox",
+		"Luka Muller",
+		"Peter Jones",
+	],
+	openGraph: {
+		title: "Oooh, Spooky - The Comedy Horror Podcast",
+		description:
+			"Listen to Oooh, Spooky - the #1 comedy horror podcast hosted by Adam Knox, Luka Muller and Peter Jones. New episodes weekly!",
+		url: "https://ooohspooky.com",
+		type: "website",
+	},
+};
 
 export default async function Home() {
 	const episodes = await getPodcastEpisodes();
 
 	return (
 		<main className="min-h-screen flex flex-col">
+			<PodcastJsonLd
+				url="https://ooohspooky.com"
+				name="Oooh, Spooky - The Comedy Horror Podcast"
+				description="A comedy podcast that explores the mysterious and unexplained with Adam Knox, Luka Muller, and Peter Jones."
+				author="Adam Knox, Luka Muller, Peter Jones"
+				imageUrl="https://ooohspooky.com/oooh-spooky.png"
+			/>
+			<OrganizationJsonLd
+				name="Oooh, Spooky Podcast"
+				url="https://ooohspooky.com"
+				logo="https://ooohspooky.com/oooh-spooky.png"
+				description="A comedy podcast that explores the mysterious and unexplained."
+				sameAs={[
+					"https://twitter.com/OoohSpooky",
+					"https://www.instagram.com/ooohspooky/",
+					"https://www.facebook.com/ooohspooky/",
+					"https://ooohspooky.libsyn.com/rss",
+				]}
+			/>
 			<Header />
 			<HeroBanner />
 
