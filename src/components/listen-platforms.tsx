@@ -1,4 +1,4 @@
-import { platforms } from "@/app/listen/page";
+import { platforms } from "@/lib/utils";
 
 export default function ListenPlatforms() {
 	return (

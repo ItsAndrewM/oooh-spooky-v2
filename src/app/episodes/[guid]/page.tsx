@@ -12,13 +12,12 @@ type Params = Promise<{
 }>;
 
 // Generate dynamic metadata for each episode
-export async function generateMetadata({
-	params,
-}: {
-	params: { guid: string };
+export async function generateMetadata(props: {
+	params: Params;
 }): Promise<Metadata> {
+	const { guid } = await props.params;
 	const episodes = await getPodcastEpisodes();
-	const episode = episodes.find((ep) => ep.guid === params.guid);
+	const episode = episodes.find((ep) => ep.guid === guid);
 
 	if (!episode) {
 		return {
