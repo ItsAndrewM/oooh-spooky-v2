@@ -23,10 +23,18 @@ export default function Footer() {
 					<div>
 						<h3 className="text-xl font-bold mb-4 text-primary">Links</h3>
 						<div className="footer-links">
-							<Link href="/">Home</Link>
-							<Link href="/episodes">Episodes</Link>
-							<Link href="/listen">Listen</Link>
-							<Link href="/about">About</Link>
+							<Link href="/" prefetch>
+								Home
+							</Link>
+							<Link href="/episodes" prefetch>
+								Episodes
+							</Link>
+							<Link href="/listen" prefetch>
+								Listen
+							</Link>
+							<Link href="/about" prefetch>
+								About
+							</Link>
 							<Link
 								href="https://www.patreon.com/ooohspooky"
 								target="_blank"

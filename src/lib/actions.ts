@@ -101,8 +101,8 @@ export async function sendContactEmail(
 
 		// Set up email data
 		const msg = {
-			to: "hello@ooohspooky.com", // Replace with your email
-			from: "noreply@ooohspooky.com", // Replace with your verified sender
+			to: "and4monium@gmail.com", // Replace with your email
+			from: "info@ooohspooky.com", // Replace with your verified sender
 			replyTo: data.email,
 			subject: `[Contact Form] ${data.subject}`,
 			text: `

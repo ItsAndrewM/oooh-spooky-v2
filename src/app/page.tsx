@@ -118,7 +118,9 @@ export default async function Home() {
 					<PodcastList episodes={episodes.slice(0, 5)} />
 					<div className="flex justify-center mt-10">
 						<Button asChild className="cta-button ">
-							<Link href="/episodes">View All Episodes</Link>
+							<Link href="/episodes" prefetch>
+								View All Episodes
+							</Link>
 						</Button>
 					</div>
 				</div>

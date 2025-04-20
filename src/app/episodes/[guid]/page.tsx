@@ -90,7 +90,7 @@ export default async function EpisodeDetailPage({
 						Sorry, we couldn&apos;t find the episode you&apos;re looking for.
 					</p>
 					<div className="flex justify-center">
-						<Link href="/episodes" className="cta-button">
+						<Link href="/episodes" className="cta-button" prefetch>
 							Back to Episodes
 						</Link>
 					</div>
@@ -109,6 +109,7 @@ export default async function EpisodeDetailPage({
 					<Link
 						href="/episodes"
 						className="text-primary hover:text-accent mb-6 inline-block"
+						prefetch
 					>
 						← Back to Episodes
 					</Link>

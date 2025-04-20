@@ -15,9 +15,9 @@ import { Button } from "./ui/button";
 
 export default function PodcastList({ episodes }: { episodes: Episode[] }) {
 	return (
-		<div className="space-y-6">
-			{episodes.map((episode) => (
-				<Card key={episode.guid} className="overflow-hidden">
+		<div className="space-y-6 podcast-list">
+			{episodes.map((episode, index) => (
+				<Card key={episode.guid} className="overflow-hidden podcast-list-item">
 					<div className="flex flex-col md:flex-row">
 						<div className="md:w-1/4 lg:w-1/5 bg-muted p-4 flex items-center justify-center">
 							<div className="aspect-square w-full max-w-[200px] relative bg-black rounded-md overflow-hidden flex items-center justify-center">
@@ -27,6 +27,8 @@ export default function PodcastList({ episodes }: { episodes: Episode[] }) {
 									className="w-full h-full object-cover"
 									width={200}
 									height={200}
+									priority={index === 0}
+									fetchPriority={index === 0 ? "high" : "low"}
 								/>
 							</div>
 						</div>
@@ -63,7 +65,9 @@ export default function PodcastList({ episodes }: { episodes: Episode[] }) {
 									asChild
 									className="bg-secondary text-secondary-foreground hover:bg-secondary/80 font-medium py-2 px-6 rounded-md transition-colors duration-300"
 								>
-									<Link href={`/episodes/${episode.guid}`}>View Details</Link>
+									<Link href={`/episodes/${episode.guid}`} prefetch>
+										View Details
+									</Link>
 								</Button>
 							</CardFooter>
 						</div>

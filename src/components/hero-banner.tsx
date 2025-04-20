@@ -12,6 +12,7 @@ export default function HeroBanner() {
 					fill
 					priority
 					className="object-cover brightness-50"
+					fetchPriority="high"
 				/>
 			</div>
 
@@ -28,7 +29,7 @@ export default function HeroBanner() {
 						</p>
 						<div className="flex flex-col sm:flex-row gap-4 justify-center">
 							<Button asChild>
-								<Link href="/episodes" className="cta-button">
+								<Link href="/episodes" className="cta-button" prefetch>
 									Listen Now
 								</Link>
 							</Button>

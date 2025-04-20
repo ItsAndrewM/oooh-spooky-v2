@@ -1,11 +1,19 @@
 import type React from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import Analytics from "@/components/analytics";
 import SpeedInsights from "@/components/speed-insights";
+import { Toaster } from "sonner";
 const inter = Inter({ subsets: ["latin"] });
+
+export const viewport: Viewport = {
+	width: "device-width",
+	initialScale: 1,
+	themeColor: "black",
+	colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
 	title: {
@@ -64,7 +72,6 @@ export const metadata: Metadata = {
 		shortcut: "/oooh-spooky.png",
 		apple: "/oooh-spooky.png",
 	},
-	viewport: "width=device-width, initial-scale=1",
 	robots: {
 		index: true,
 		follow: true,
@@ -96,6 +103,7 @@ export default function RootLayout({
 				</ThemeProvider>
 				<Analytics />
 				<SpeedInsights />
+				<Toaster />
 			</body>
 		</html>
 	);

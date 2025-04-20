@@ -1,8 +1,8 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import PodcastList from "@/components/podcast-list";
-import { getPodcastEpisodes } from "@/lib/podcast";
 import { Metadata } from "next";
+import PodcastListContainer from "@/components/podcast-list-container";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
 	title: "All Episodes | Oooh, Spooky Podcast",
@@ -25,8 +25,6 @@ export const metadata: Metadata = {
 };
 
 export default async function EpisodesPage() {
-	const episodes = await getPodcastEpisodes();
-
 	return (
 		<main className="min-h-screen flex flex-col">
 			<Header />
@@ -36,7 +34,9 @@ export default async function EpisodesPage() {
 					<h1 className="text-4xl font-bold mb-12 text-center spooky-title text-primary">
 						All Episodes
 					</h1>
-					<PodcastList episodes={episodes} />
+					<Suspense fallback={<div>Loading...</div>}>
+						<PodcastListContainer />
+					</Suspense>
 				</div>
 			</section>
 

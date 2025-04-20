@@ -67,6 +67,7 @@ export default function PodcastGrid() {
 						target={podcast.isPremium ? "_blank" : "_self"}
 						rel={podcast.isPremium ? "noopener noreferrer" : ""}
 						className="block relative"
+						prefetch={podcast.isPremium ? false : true}
 					>
 						<div className="aspect-square w-full overflow-hidden">
 							<Image
@@ -109,7 +110,9 @@ export default function PodcastGrid() {
 							</Button>
 						) : (
 							<Button asChild className="w-full cta-button text-center block">
-								<Link href={podcast.url}>Stream Episodes</Link>
+								<Link href={podcast.url} prefetch>
+									Stream Episodes
+								</Link>
 							</Button>
 						)}
 					</CardFooter>

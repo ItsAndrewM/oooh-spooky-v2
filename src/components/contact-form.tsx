@@ -13,6 +13,17 @@ import {
 } from "@/lib/schemas";
 import { ZodError } from "zod";
 import { toast } from "sonner";
+import { Button } from "./ui/button";
+import { Textarea } from "./ui/textarea";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "./ui/select";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
 
 export default function ContactForm() {
 	const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,6 +45,8 @@ export default function ContactForm() {
 		"6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // Test key
 	const isTestKey =
 		recaptchaSiteKey === "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
+
+	console.log(recaptchaSiteKey);
 
 	useEffect(() => {
 		// Add a small delay to ensure the reCAPTCHA script has loaded
@@ -59,6 +72,21 @@ export default function ContactForm() {
 				errors: {
 					...prev.errors,
 					[name]: undefined,
+				},
+			}));
+		}
+	};
+
+	const handleSelectChange = (value: string) => {
+		setFormData((prev) => ({ ...prev, subject: value }));
+
+		// Clear field-specific errors when user selects
+		if (formState.errors?.subject) {
+			setFormState((prev) => ({
+				...prev,
+				errors: {
+					...prev.errors,
+					subject: undefined,
 				},
 			}));
 		}
@@ -191,11 +219,11 @@ export default function ContactForm() {
 	return (
 		<form onSubmit={handleSubmit} className="space-y-6">
 			<div className="grid grid-cols-1 gap-6">
-				<div>
-					<label htmlFor="name" className="block text-sm font-medium mb-1">
+				<div className="bg-[#0F0F0F] rounded-md p-4">
+					<Label htmlFor="name" className="block text-sm font-medium mb-1">
 						Name <span className="text-red-500">*</span>
-					</label>
-					<input
+					</Label>
+					<Input
 						type="text"
 						id="name"
 						name="name"
@@ -213,11 +241,11 @@ export default function ContactForm() {
 					)}
 				</div>
 
-				<div>
-					<label htmlFor="email" className="block text-sm font-medium mb-1">
+				<div className="bg-[#0F0F0F] rounded-md p-4">
+					<Label htmlFor="email" className="block text-sm font-medium mb-1">
 						Email <span className="text-red-500">*</span>
-					</label>
-					<input
+					</Label>
+					<Input
 						type="email"
 						id="email"
 						name="email"
@@ -235,25 +263,29 @@ export default function ContactForm() {
 					)}
 				</div>
 
-				<div>
-					<label htmlFor="subject" className="block text-sm font-medium mb-1">
+				<div className="bg-[#0F0F0F] rounded-md p-4">
+					<Label htmlFor="subject" className="block text-sm font-medium mb-1">
 						Subject <span className="text-red-500">*</span>
-					</label>
-					<select
-						id="subject"
+					</Label>
+					<Select
 						name="subject"
 						value={formData.subject}
-						onChange={handleChange}
-						className={`w-full p-3 rounded-md border ${
-							formState.errors?.subject ? "border-red-500" : "border-input"
-						} bg-background`}
+						onValueChange={handleSelectChange}
 					>
-						{subjectOptions.map((option) => (
-							<option key={option.value} value={option.value}>
-								{option.label}
-							</option>
-						))}
-					</select>
+						<SelectTrigger className="w-full">
+							<SelectValue placeholder="Select a subject" />
+						</SelectTrigger>
+						<SelectContent className="border-border">
+							{subjectOptions.map(
+								(option) =>
+									option.value && (
+										<SelectItem key={option.value} value={option.value}>
+											{option.label}
+										</SelectItem>
+									)
+							)}
+						</SelectContent>
+					</Select>
 					{formState.errors?.subject && (
 						<p className="mt-1 text-sm text-red-500">
 							{formState.errors.subject[0]}
@@ -261,21 +293,20 @@ export default function ContactForm() {
 					)}
 				</div>
 
-				<div>
-					<label htmlFor="message" className="block text-sm font-medium mb-1">
+				<div className="bg-[#0F0F0F] rounded-md p-4">
+					<Label htmlFor="message" className="block text-sm font-medium mb-1">
 						Message <span className="text-red-500">*</span>
-					</label>
-					<textarea
+					</Label>
+					<Textarea
 						id="message"
 						name="message"
 						value={formData.message}
 						onChange={handleChange}
-						rows={6}
-						className={`w-full p-3 rounded-md border ${
+						className={`w-full p-3 rounded-md border h-40 ${
 							formState.errors?.message ? "border-red-500" : "border-input"
 						} bg-background resize-none`}
 						placeholder="Your message..."
-					></textarea>
+					/>
 					{formState.errors?.message && (
 						<p className="mt-1 text-sm text-red-500">
 							{formState.errors.message[0]}
@@ -309,7 +340,7 @@ export default function ContactForm() {
 				)}
 			</div>
 
-			<button
+			<Button
 				type="submit"
 				disabled={isSubmitting}
 				className="w-full cta-button flex items-center justify-center"
@@ -321,7 +352,7 @@ export default function ContactForm() {
 				) : (
 					"Send Message"
 				)}
-			</button>
+			</Button>
 		</form>
 	);
 }

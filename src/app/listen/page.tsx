@@ -126,6 +126,7 @@ export default function ListenPage() {
 									target={podcast.isPremium ? "_blank" : "_self"}
 									rel={podcast.isPremium ? "noopener noreferrer" : ""}
 									className="block relative"
+									prefetch={podcast.isPremium ? false : true}
 								>
 									<div className="aspect-square w-full overflow-hidden">
 										<Image
@@ -173,7 +174,9 @@ export default function ListenPage() {
 											asChild
 											className="w-full cta-button text-center block"
 										>
-											<Link href={podcast.url}>Stream Episodes</Link>
+											<Link href={podcast.url} prefetch>
+												Stream Episodes
+											</Link>
 										</Button>
 									)}
 								</CardFooter>
@@ -223,7 +226,9 @@ export default function ListenPage() {
 					</h2>
 					<div className="text-center mb-8">
 						<Button asChild className="cta-button inline-block">
-							<Link href="/episodes">View All Episodes</Link>
+							<Link href="/episodes" prefetch>
+								View All Episodes
+							</Link>
 						</Button>
 					</div>
 				</section>

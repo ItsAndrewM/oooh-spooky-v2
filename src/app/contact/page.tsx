@@ -5,8 +5,13 @@ import Footer from "@/components/footer";
 import ContactForm from "@/components/contact-form";
 import { Mail, MessageSquare, MapPin } from "lucide-react";
 import { FAQJsonLd } from "../components/json-ld";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { useRef } from "react";
 
 export default function ContactPage() {
+	const contactFormRef = useRef<HTMLDivElement>(null);
+
 	const faqQuestions = [
 		{
 			question: "How can I support the podcast?",
@@ -36,7 +41,7 @@ export default function ContactPage() {
 				</h1>
 
 				<div className="max-w-5xl mx-auto">
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+					<div className="flex flex-col gap-12">
 						<div>
 							<h2 className="text-2xl font-bold mb-6 text-primary">
 								Get In Touch
@@ -53,7 +58,7 @@ export default function ContactPage() {
 									<div>
 										<h3 className="font-bold">Email</h3>
 										<p className="text-muted-foreground">
-											hello@ooohspooky.com
+											hauntedpodcastemail@gmail.com
 										</p>
 									</div>
 								</div>
@@ -62,34 +67,34 @@ export default function ContactPage() {
 									<MessageSquare className="text-primary mt-1 flex-shrink-0" />
 									<div>
 										<h3 className="font-bold">Social Media</h3>
-										<p className="text-muted-foreground">
-											Follow us on{" "}
-											<a
+										<p className="text-muted-foreground ">
+											<span className="mr-1">Follow us on</span>
+											<Link
 												href="https://twitter.com/OoohSpooky"
 												target="_blank"
 												rel="noopener noreferrer"
-												className="text-primary hover:text-accent"
+												className="text-primary hover:text-accent ml-1"
 											>
 												Twitter
-											</a>
-											,{" "}
-											<a
+											</Link>
+											,
+											<Link
 												href="https://www.instagram.com/ooohspooky/"
 												target="_blank"
 												rel="noopener noreferrer"
-												className="text-primary hover:text-accent"
+												className="text-primary hover:text-accent ml-1"
 											>
 												Instagram
-											</a>
-											, or{" "}
-											<a
+											</Link>
+											, or
+											<Link
 												href="https://www.facebook.com/ooohspooky/"
 												target="_blank"
 												rel="noopener noreferrer"
-												className="text-primary hover:text-accent"
+												className="text-primary hover:text-accent ml-1"
 											>
 												Facebook
-											</a>
+											</Link>
 										</p>
 									</div>
 								</div>
@@ -99,7 +104,7 @@ export default function ContactPage() {
 									<div>
 										<h3 className="font-bold">Location</h3>
 										<p className="text-muted-foreground">
-											Melbourne, Australia
+											Melbourne, Australia & London, UK
 										</p>
 									</div>
 								</div>
@@ -113,24 +118,28 @@ export default function ContactPage() {
 									Have a mysterious or unexplained phenomenon you&apos;d like us
 									to cover on the podcast? Let us know!
 								</p>
-								<a
-									href="#contact-form"
-									className="cta-button inline-block"
-									onClick={(e) => {
-										e.preventDefault();
-										document
-											.getElementById("contact-form")
-											?.scrollIntoView({ behavior: "smooth" });
-									}}
-								>
-									Suggest Now
-								</a>
+
+								<Button asChild className="cta-button inline-block">
+									<Link
+										href="#contact-form"
+										onClick={(e) => {
+											e.preventDefault();
+											contactFormRef.current?.scrollIntoView({
+												behavior: "smooth",
+											});
+										}}
+									>
+										Suggest Now
+									</Link>
+								</Button>
 							</div>
 						</div>
 
-						<div id="contact-form">
+						<div id="contact-form" ref={contactFormRef}>
 							<div className="bg-card border border-border rounded-lg p-6 shadow-lg">
-								<h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
+								<h2 className="text-2xl font-bold mb-6 text-primary">
+									Send Us a Message
+								</h2>
 								<ContactForm />
 							</div>
 						</div>
@@ -148,14 +157,14 @@ export default function ContactPage() {
 							</h3>
 							<p>
 								The best way to support us is by joining our{" "}
-								<a
+								<Link
 									href="https://www.patreon.com/ooohspooky"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="text-primary hover:text-accent"
 								>
 									Patreon
-								</a>
+								</Link>
 								. You&apos;ll get access to exclusive content and help us
 								continue making the podcast.
 							</p>
