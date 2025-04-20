@@ -6,6 +6,7 @@ import "./globals.css";
 import Analytics from "@/components/analytics";
 import SpeedInsights from "@/components/speed-insights";
 import { Toaster } from "sonner";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const viewport: Viewport = {

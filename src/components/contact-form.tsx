@@ -2,10 +2,9 @@
 
 import type React from "react";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { sendContactEmail } from "@/lib/actions";
 import { Loader2 } from "lucide-react";
-import ReCAPTCHA from "react-google-recaptcha";
 import {
 	ContactFormSchema,
 	type FormState,
@@ -24,13 +23,12 @@ import {
 } from "./ui/select";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function ContactForm() {
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-	const recaptchaRef = useRef<ReCAPTCHA>(null);
-	const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
 	const [formState, setFormState] = useState<FormState>({});
+	const { executeRecaptcha } = useGoogleReCaptcha();
 
 	const [formData, setFormData] = useState({
 		name: "",
@@ -40,22 +38,10 @@ export default function ContactForm() {
 	});
 
 	// Check if reCAPTCHA site key is available
-	const recaptchaSiteKey =
-		process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
-		"6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // Test key
+	const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 	const isTestKey =
+		!recaptchaSiteKey ||
 		recaptchaSiteKey === "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
-
-	console.log(recaptchaSiteKey);
-
-	useEffect(() => {
-		// Add a small delay to ensure the reCAPTCHA script has loaded
-		const timer = setTimeout(() => {
-			setRecaptchaLoaded(true);
-		}, 1000);
-
-		return () => clearTimeout(timer);
-	}, []);
 
 	const handleChange = (
 		e: React.ChangeEvent<
@@ -92,27 +78,12 @@ export default function ContactForm() {
 		}
 	};
 
-	const handleCaptchaChange = (token: string | null) => {
-		setCaptchaToken(token);
-
-		// Clear reCAPTCHA error if it exists
-		if (formState.errors?.recaptchaToken) {
-			setFormState((prev) => ({
-				...prev,
-				errors: {
-					...prev.errors,
-					recaptchaToken: undefined,
-				},
-			}));
-		}
-	};
-
-	const validateForm = () => {
+	const validateForm = (recaptchaToken?: string) => {
 		try {
 			// Include recaptchaToken in validation if not using test key
 			const dataToValidate = {
 				...formData,
-				recaptchaToken: !isTestKey ? captchaToken || "" : undefined,
+				recaptchaToken: !isTestKey ? recaptchaToken || "" : undefined,
 			};
 
 			// Validate with Zod schema
@@ -144,10 +115,8 @@ export default function ContactForm() {
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
-		// Client-side validation with Zod
-		const validation = validateForm();
-		if (!validation.success) {
-			setFormState({ errors: validation.errors });
+		if (!executeRecaptcha) {
+			toast.error("reCAPTCHA not available");
 			return;
 		}
 
@@ -155,9 +124,20 @@ export default function ContactForm() {
 		setFormState({});
 
 		try {
+			// Execute reCAPTCHA with action name 'contact'
+			const token = await executeRecaptcha("contact");
+
+			// Client-side validation with Zod
+			const validation = validateForm(token);
+			if (!validation.success) {
+				setFormState({ errors: validation.errors });
+				setIsSubmitting(false);
+				return;
+			}
+
 			const result = await sendContactEmail({
 				...formData,
-				recaptchaToken: captchaToken || "",
+				recaptchaToken: token || "",
 			});
 
 			if (result.success) {
@@ -165,7 +145,7 @@ export default function ContactForm() {
 					result.message || "We'll get back to you as soon as possible."
 				);
 
-				// Reset form and reCAPTCHA
+				// Reset form
 				setFormData({
 					name: "",
 					email: "",
@@ -173,10 +153,6 @@ export default function ContactForm() {
 					message: "",
 				});
 
-				if (recaptchaRef.current) {
-					recaptchaRef.current.reset();
-				}
-				setCaptchaToken(null);
 				setFormState({ success: true });
 			} else {
 				toast.error(
@@ -185,23 +161,10 @@ export default function ContactForm() {
 
 				// Set form errors from server
 				setFormState({ errors: result.errors });
-
-				// Reset reCAPTCHA on error
-				if (recaptchaRef.current) {
-					recaptchaRef.current.reset();
-				}
-				setCaptchaToken(null);
 			}
 		} catch (error: unknown) {
 			toast.error("Something went wrong. Please try again.");
-
 			console.error(error);
-
-			// Reset reCAPTCHA on error
-			if (recaptchaRef.current) {
-				recaptchaRef.current.reset();
-			}
-			setCaptchaToken(null);
 		} finally {
 			setIsSubmitting(false);
 		}
@@ -272,7 +235,11 @@ export default function ContactForm() {
 						value={formData.subject}
 						onValueChange={handleSelectChange}
 					>
-						<SelectTrigger className="w-full">
+						<SelectTrigger
+							className={`w-full p-3 rounded-md border ${
+								formState.errors?.subject ? "border-red-500" : "border-input"
+							} bg-background`}
+						>
 							<SelectValue placeholder="Select a subject" />
 						</SelectTrigger>
 						<SelectContent className="border-border">
@@ -314,20 +281,10 @@ export default function ContactForm() {
 					)}
 				</div>
 
-				{recaptchaLoaded && (
-					<div className="flex flex-col items-center">
-						<ReCAPTCHA
-							ref={recaptchaRef}
-							sitekey={recaptchaSiteKey}
-							onChange={handleCaptchaChange}
-							theme="dark"
-						/>
-						{formState.errors?.recaptchaToken && (
-							<p className="mt-1 text-sm text-red-500">
-								{formState.errors.recaptchaToken[0]}
-							</p>
-						)}
-					</div>
+				{formState.errors?.recaptchaToken && (
+					<p className="mt-1 text-sm text-red-500 text-center">
+						{formState.errors.recaptchaToken[0]}
+					</p>
 				)}
 
 				{isTestKey && (

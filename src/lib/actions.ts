@@ -101,25 +101,25 @@ export async function sendContactEmail(
 
 		// Set up email data
 		const msg = {
-			to: "and4monium@gmail.com", // Replace with your email
-			from: "info@ooohspooky.com", // Replace with your verified sender
+			to: "and4m0n1um@gmail.com", // Replace with your email
+			from: "noreply@ooohspooky.com", // Replace with your verified sender
 			replyTo: data.email,
 			subject: `[Contact Form] ${data.subject}`,
 			text: `
-Name: ${data.name}
-Email: ${data.email}
-Subject: ${data.subject}
+					Name: ${data.name}
+					Email: ${data.email}
+					Subject: ${data.subject}
 
-Message:
-${data.message}
-      `,
+					Message:
+					${data.message}
+						`,
 			html: `
-<strong>Name:</strong> ${data.name}<br>
-<strong>Email:</strong> ${data.email}<br>
-<strong>Subject:</strong> ${data.subject}<br><br>
-<strong>Message:</strong><br>
-${data.message.replace(/\n/g, "<br>")}
-      `,
+					<strong>Name:</strong> ${data.name}<br>
+					<strong>Email:</strong> ${data.email}<br>
+					<strong>Subject:</strong> ${data.subject}<br><br>
+					<strong>Message:</strong><br>
+					${data.message.replace(/\n/g, "<br>")}
+						`,
 		};
 
 		// Send the email
@@ -139,18 +139,21 @@ ${data.message.replace(/\n/g, "<br>")}
 
 async function verifyRecaptcha(token: string, secretKey: string) {
 	const response = await fetch(
-		"https://www.google.com/recaptcha/api/siteverify",
+		`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`,
 		{
 			method: "POST",
 			headers: {
-				"Content-Type": "application/x-www-form-urlencoded",
+				Accept: "application/json",
+				"Content-Type": "application/json",
 			},
-			body: new URLSearchParams({
-				secret: secretKey,
-				response: token,
-			}),
 		}
 	);
+	if (!response.ok) {
+		return {
+			success: false,
+			message: "Failed to verify reCAPTCHA. Please try again later.",
+		};
+	}
 
-	return await response.json();
+	return { success: true };
 }
