@@ -39,7 +39,6 @@ export default function ContactForm() {
 
 	// Check if reCAPTCHA site key is available
 	const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-	console.log("recaptchaSiteKey is", recaptchaSiteKey);
 	const isTestKey =
 		!recaptchaSiteKey ||
 		recaptchaSiteKey === "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
