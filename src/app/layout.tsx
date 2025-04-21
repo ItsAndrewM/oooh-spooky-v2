@@ -6,6 +6,7 @@ import "./globals.css";
 import Analytics from "@/components/analytics";
 import SpeedInsights from "@/components/speed-insights";
 import { Toaster } from "sonner";
+import { HighlightInit } from "@highlight-run/next/client";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -89,23 +90,35 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" suppressHydrationWarning>
-			<head>
-				<link rel="icon" href="/oooh-spooky.png" />
-			</head>
-			<body className={inter.className}>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="dark"
-					enableSystem
-					disableTransitionOnChange
-				>
-					{children}
-				</ThemeProvider>
-				<Analytics />
-				<SpeedInsights />
-				<Toaster />
-			</body>
-		</html>
+		<>
+			<HighlightInit
+				projectId={process.env.NEXT_PUBLIC_HIGHLIGHT_PROJECT_ID}
+				serviceName="oooh-spooky"
+				tracingOrigins
+				networkRecording={{
+					enabled: true,
+					recordHeadersAndBody: true,
+					urlBlocklist: [],
+				}}
+			/>
+			<html lang="en" suppressHydrationWarning>
+				<head>
+					<link rel="icon" href="/oooh-spooky.png" />
+				</head>
+				<body className={inter.className}>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="dark"
+						enableSystem
+						disableTransitionOnChange
+					>
+						{children}
+					</ThemeProvider>
+					<Analytics />
+					<SpeedInsights />
+					<Toaster />
+				</body>
+			</html>
+		</>
 	);
 }
