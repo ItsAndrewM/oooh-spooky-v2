@@ -3,7 +3,8 @@ import Footer from "@/components/footer";
 import { Metadata } from "next";
 import PodcastListContainer from "@/components/podcast-list-container";
 import { Suspense } from "react";
-
+import { SearchEpisodes } from "@/components/search-episodes";
+import PodcastListSkeleton from "@/components/podcast-list-skeleton";
 export const metadata: Metadata = {
 	title: "All Episodes | Oooh, Spooky Podcast",
 	description:
@@ -24,18 +25,24 @@ export const metadata: Metadata = {
 	},
 };
 
-export default async function EpisodesPage() {
+type PageParams = {
+	searchParams: Promise<{ search: string }>;
+};
+
+export default async function EpisodesPage(props: PageParams) {
+	const search = await props.searchParams;
 	return (
 		<main className="min-h-screen flex flex-col">
 			<Header />
 
 			<section className="py-16 flex-grow">
-				<div className="container mx-auto px-4">
+				<div className="container mx-auto px-4 flex flex-col gap-4">
 					<h1 className="text-4xl font-bold mb-12 text-center spooky-title text-primary">
 						All Episodes
 					</h1>
-					<Suspense fallback={<div>Loading...</div>}>
-						<PodcastListContainer />
+					<SearchEpisodes />
+					<Suspense fallback={<PodcastListSkeleton />}>
+						<PodcastListContainer search={search?.search || ""} />
 					</Suspense>
 				</div>
 			</section>
