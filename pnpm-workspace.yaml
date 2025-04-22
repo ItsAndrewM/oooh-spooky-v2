@@ -1,0 +1,5 @@
+onlyBuiltDependencies:
+  - '@vercel/speed-insights'
+  - protobufjs
+  - sharp
+  - unrs-resolver
