@@ -45,3 +45,16 @@ export const platforms = [
 		icon: "/icons/rss.svg",
 	},
 ];
+
+export const guidPlatforms = [
+	{
+		name: "Spotify",
+		url: "https://open.spotify.com/show/2Mz6GRNnR4n1s2aVs6phDk?si=c3bd3809c100447f",
+		icon: "/icons/spotify.svg",
+	},
+	{
+		name: "Apple Podcasts",
+		url: "https://podcasts.apple.com/us/podcast/oooh-spooky/id1440546225",
+		icon: "/icons/apple-podcasts.svg",
+	},
+];
