@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 		siteName: "Oooh, Spooky Podcast",
 		images: [
 			{
-				url: "/oooh-spooky.png",
+				url: "/images/hero-image.png",
 				width: 1200,
 				height: 630,
 				alt: "Oooh, Spooky Podcast Logo",
@@ -60,14 +60,23 @@ export const metadata: Metadata = {
 		],
 		locale: "en_US",
 		type: "website",
+
 	},
 	twitter: {
 		card: "summary_large_image",
 		title: "Oooh, Spooky - The Comedy Horror Podcast",
 		description:
 			"Join Adam Knox, Luka Muller and Peter Jones on Oooh, Spooky - the hilarious comedy horror podcast exploring all things spooky and weird.",
-		images: ["/oooh-spooky.png"],
 		creator: "@OoohSpookyPod",
+		site: "@OoohSpookyPod",
+		images: [
+			{
+				url: "/images/hero-image.png",
+				width: 1200,
+				height: 630,
+				alt: "Oooh, Spooky Podcast Logo",
+			},
+		],
 	},
 	icons: {
 		icon: "/oooh-spooky.png",
@@ -104,6 +113,8 @@ export default function RootLayout({
 			<html lang="en" suppressHydrationWarning>
 				<head>
 					<link rel="icon" href="/oooh-spooky.png" />
+					<meta property="og:site_name" content="Oooh, Spooky Podcast" />
+					<meta property="og:image" content="/images/hero-image.png" />
 				</head>
 				<body className={inter.className}>
 					<ThemeProvider
