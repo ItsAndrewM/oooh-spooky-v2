@@ -30,8 +30,8 @@ export default function Error({
 					</h1>
 
 					<p className="text-lg text-gray-300 mb-8">
-						Oooh, spooky! Something unexpected happened. Don't worry, we've been
-						notified and are looking into it.
+						Oooh, spooky! Something unexpected happened. Don&apos;t worry,
+						we&apos;ve been notified and are looking into it.
 					</p>
 
 					<div className="flex flex-col sm:flex-row gap-4 justify-center">
