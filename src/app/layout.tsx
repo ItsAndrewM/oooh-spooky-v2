@@ -18,6 +18,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://ooohspooky.com"),
 	title: {
 		template: "%s | Oooh, Spooky Podcast",
 		default: "Oooh, Spooky - The Comedy Horror Podcast",
@@ -60,7 +61,6 @@ export const metadata: Metadata = {
 		],
 		locale: "en_US",
 		type: "website",
-
 	},
 	twitter: {
 		card: "summary_large_image",
