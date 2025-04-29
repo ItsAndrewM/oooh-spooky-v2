@@ -96,8 +96,8 @@ export default function AboutPage() {
 							Whether you&apos;re a skeptic or a believer, Oooh, Spooky offers
 							an entertaining look at the weird and wonderful world of
 							unexplained mysteries, often featuring easily excited villagers
-							who've seen something slightly weird, but not really that weird.
-							Listener beware! You're in for a chuckle.
+							who&apos;ve seen something slightly weird, but not really that
+							weird. Listener beware! You&apos;re in for a chuckle.
 						</p>
 
 						<div className="mt-8 p-6 bg-black/50 rounded-lg">

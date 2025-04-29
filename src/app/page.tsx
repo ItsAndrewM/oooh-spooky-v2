@@ -144,9 +144,9 @@ export default async function Home() {
 							sightings - all with their signature humor and skeptical approach.
 						</p>
 						<p className="text-lg">
-							Whether you're a believer in the paranormal or just looking for a
-							good laugh, Oooh, Spooky delivers both chills and chuckles in
-							equal measure.
+							Whether you&apos;re a believer in the paranormal or just looking
+							for a good laugh, Oooh, Spooky delivers both chills and chuckles
+							in equal measure.
 						</p>
 					</div>
 				</div>
