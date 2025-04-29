@@ -44,13 +44,8 @@ export default async function EpisodesPage(props: PageParams) {
 			<section className="py-16 flex-grow">
 				<div className="container mx-auto px-4 flex flex-col gap-4">
 					<h1 className="text-4xl font-bold mb-12 text-center spooky-title text-primary">
-						All Oooh, Spooky Episodes
+						All Episodes
 					</h1>
-					<p className="text-lg text-center max-w-3xl mx-auto mb-8">
-						Explore all episodes of the Oooh, Spooky podcast where Adam Knox,
-						Luka Muller, and Peter Jones dive into the mysterious, paranormal,
-						and unexplained with comedy and humor.
-					</p>
 					<SearchEpisodes />
 					<Suspense fallback={<PodcastListSkeleton />}>
 						<PodcastListContainer search={search?.search || ""} />
