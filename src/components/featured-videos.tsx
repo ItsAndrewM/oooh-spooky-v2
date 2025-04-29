@@ -57,14 +57,14 @@ export default function FeaturedVideos() {
 								</h3>
 								<p className="text-gray-300 mb-4">{video.description}</p>
 								<Button asChild>
-									<Link
+									<a
 										href={video.embedUrl.replace("embed/", "watch?v=")}
 										target="_blank"
 										rel="noopener noreferrer"
 										className="cta-button inline-block"
 									>
 										Watch on YouTube
-									</Link>
+									</a>
 								</Button>
 							</div>
 						</div>
@@ -73,14 +73,14 @@ export default function FeaturedVideos() {
 
 				<div className="mt-12 text-center">
 					<Button asChild>
-						<Link
+						<a
 							href="https://www.youtube.com/@OoohSpooky"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="bg-primary text-primary-foreground hover:bg-accent font-bold py-3 px-8 rounded-md text-lg transition-colors duration-300"
 						>
 							View All Videos
-						</Link>
+						</a>
 					</Button>
 				</div>
 			</div>

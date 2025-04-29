@@ -139,23 +139,23 @@ export default async function EpisodeDetailPage({
 											asChild
 											className="cta-button flex items-center gap-2"
 										>
-											<Link
+											<a
 												href={episode.enclosure.url}
 												target="_blank"
 												rel="noopener noreferrer"
 											>
 												<Play size={24} />
 												Listen Now
-											</Link>
+											</a>
 										</Button>
 									)}
 									{guidPlatforms.map((platform) => (
 										<Button
 											asChild
 											key={platform.name}
-											className="w-16 h-16 mb-2 bg-inherit rounded-full flex items-center justify-center"
+											className="w-16 h-16 mb-2 bg-inherit rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-transparent"
 										>
-											<Link
+											<a
 												key={platform.name}
 												href={platform.url}
 												target="_blank"
@@ -168,7 +168,7 @@ export default async function EpisodeDetailPage({
 													width={40}
 													height={40}
 												/>
-											</Link>
+											</a>
 										</Button>
 									))}
 								</div>

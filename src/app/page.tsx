@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 import { PodcastJsonLd, OrganizationJsonLd } from "./components/json-ld";
 import { CallToAction } from "@/components/call-to-action";
+import { X } from "@/components/icons/x";
 
 export const metadata: Metadata = {
 	title: "Oooh, Spooky - The Comedy Horror Podcast",
@@ -65,20 +66,22 @@ export default async function Home() {
 			{/* Social Links */}
 			<div className="bg-black py-6">
 				<div className="container mx-auto flex justify-center">
-					<div className="social-links text-primary">
+					<div className="social-links text-primary flex justify-center items-center gap-4">
 						<a
 							href="https://twitter.com/OoohSpooky"
 							target="_blank"
 							rel="noopener noreferrer"
 							aria-label="Twitter"
+							className="hover:scale-110 transition-all duration-300"
 						>
-							<Twitter />
+							<X className="size-5" fill="#d7d700" />
 						</a>
 						<a
 							href="https://www.instagram.com/ooohspooky/"
 							target="_blank"
 							rel="noopener noreferrer"
 							aria-label="Instagram"
+							className="hover:scale-110 transition-all duration-300"
 						>
 							<Instagram />
 						</a>
@@ -87,6 +90,7 @@ export default async function Home() {
 							target="_blank"
 							rel="noopener noreferrer"
 							aria-label="Facebook"
+							className="hover:scale-110 transition-all duration-300"
 						>
 							<Facebook />
 						</a>
@@ -95,6 +99,7 @@ export default async function Home() {
 							target="_blank"
 							rel="noopener noreferrer"
 							aria-label="YouTube"
+							className="hover:scale-110 transition-all duration-300"
 						>
 							<Youtube />
 						</a> */}
@@ -103,6 +108,7 @@ export default async function Home() {
 							target="_blank"
 							rel="noopener noreferrer"
 							aria-label="RSS Feed"
+							className="hover:scale-110 transition-all duration-300"
 						>
 							<Rss />
 						</a>

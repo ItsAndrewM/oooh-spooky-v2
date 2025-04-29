@@ -9,6 +9,8 @@ import { Facebook, Instagram, Twitter, Globe, Youtube } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { TikTok } from "./icons/tiktok";
+import { X } from "./icons/x";
+import { HostCard } from "./host-card";
 
 const hosts = [
 	{
@@ -59,93 +61,7 @@ export default function HostsSection() {
 
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 					{hosts.map((host) => (
-						<Card key={host.id} className="overflow-hidden">
-							<div className="aspect-square w-full relative">
-								<Image
-									src={host.image || "/placeholder.svg"}
-									alt={host.name}
-									className="w-full h-full object-cover"
-									width={400}
-									height={400}
-								/>
-							</div>
-							<CardHeader>
-								<CardTitle className="text-xl">{host.name}</CardTitle>
-							</CardHeader>
-							<CardContent>
-								<p className="text-muted-foreground">{host.bio}</p>
-							</CardContent>
-							<CardFooter>
-								<div className="flex space-x-4 justify-center">
-									{host.social.twitter && (
-										<Link
-											href={host.social.twitter}
-											target="_blank"
-											rel="noopener noreferrer"
-											aria-label={`${host.name}'s Twitter`}
-											className="text-primary hover:text-accent"
-										>
-											<Twitter size={20} />
-										</Link>
-									)}
-									{host.social.instagram && (
-										<Link
-											href={host.social.instagram}
-											target="_blank"
-											rel="noopener noreferrer"
-											aria-label={`${host.name}'s Instagram`}
-											className="text-primary hover:text-accent"
-										>
-											<Instagram size={20} />
-										</Link>
-									)}
-									{host.social.facebook && (
-										<Link
-											href={host.social.facebook}
-											target="_blank"
-											rel="noopener noreferrer"
-											aria-label={`${host.name}'s Facebook`}
-											className="text-primary hover:text-accent"
-										>
-											<Facebook size={20} />
-										</Link>
-									)}
-									{host.social.website && (
-										<Link
-											href={host.social.website}
-											target="_blank"
-											rel="noopener noreferrer"
-											aria-label={`${host.name}'s Website`}
-											className="text-primary hover:text-accent"
-										>
-											<Globe size={20} />
-										</Link>
-									)}
-									{host.social.youtube && (
-										<Link
-											href={host.social.youtube}
-											target="_blank"
-											rel="noopener noreferrer"
-											aria-label={`${host.name}'s YouTube`}
-											className="text-primary hover:text-accent"
-										>
-											<Youtube size={20} />
-										</Link>
-									)}
-									{host.social.tiktok && (
-										<Link
-											href={host.social.tiktok}
-											target="_blank"
-											rel="noopener noreferrer"
-											aria-label={`${host.name}'s TikTok`}
-											className="text-primary hover:text-accent flex items-center justify-center"
-										>
-											<TikTok className="w-6 h-6 text-primary fill-current" />
-										</Link>
-									)}
-								</div>
-							</CardFooter>
-						</Card>
+						<HostCard key={host.id} host={host} />
 					))}
 				</div>
 			</div>

@@ -16,13 +16,13 @@ export function CallToAction() {
 					asChild
 					className="bg-black text-primary hover:bg-gray-900 font-bold py-3 px-8 rounded-md text-xl transition-colors duration-300"
 				>
-					<Link
+					<a
 						href="https://www.patreon.com/ooohspooky"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
 						Join Our Patreon
-					</Link>
+					</a>
 				</Button>
 			</div>
 		</section>

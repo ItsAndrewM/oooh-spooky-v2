@@ -72,32 +72,32 @@ export default function ContactPage() {
 											<h3 className="font-bold">Social Media</h3>
 											<p className="text-muted-foreground ">
 												<span className="mr-1">Follow us on</span>
-												<Link
+												<a
 													href="https://twitter.com/OoohSpooky"
 													target="_blank"
 													rel="noopener noreferrer"
 													className="text-primary hover:text-accent ml-1"
 												>
-													Twitter
-												</Link>
+													X.com (the everything app)
+												</a>
 												,
-												<Link
+												<a
 													href="https://www.instagram.com/ooohspooky/"
 													target="_blank"
 													rel="noopener noreferrer"
 													className="text-primary hover:text-accent ml-1"
 												>
 													Instagram
-												</Link>
+												</a>
 												, or
-												<Link
+												<a
 													href="https://www.facebook.com/ooohspooky/"
 													target="_blank"
 													rel="noopener noreferrer"
 													className="text-primary hover:text-accent ml-1"
 												>
 													Facebook
-												</Link>
+												</a>
 											</p>
 										</div>
 									</div>
@@ -160,14 +160,14 @@ export default function ContactPage() {
 								</h3>
 								<p>
 									The best way to support us is by joining our{" "}
-									<Link
+									<a
 										href="https://www.patreon.com/ooohspooky"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="text-primary hover:text-accent"
 									>
 										Patreon
-									</Link>
+									</a>
 									. You&apos;ll get access to exclusive content and help us
 									continue making the podcast.
 								</p>

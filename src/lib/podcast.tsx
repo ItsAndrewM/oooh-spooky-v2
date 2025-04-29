@@ -13,7 +13,31 @@ export interface Episode {
 	image?: string;
 }
 
-interface PodcastItem {
+export interface Host {
+	id: number;
+	name: string;
+	image: string;
+	bio: string;
+	social: {
+		twitter?: string;
+		instagram?: string;
+		facebook?: string;
+		website?: string;
+		youtube?: string;
+		tiktok?: string;
+	};
+}
+
+export interface Podcast {
+	id: number;
+	title: string;
+	description: string;
+	image: string;
+	url: string;
+	isPremium: boolean;
+}
+
+export interface PodcastItem {
 	title?: string;
 	description?: string;
 	pubDate?: string;

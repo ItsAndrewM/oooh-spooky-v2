@@ -4,6 +4,7 @@ import HostsSection from "@/components/hosts-section";
 import { Facebook, Instagram, Twitter, Rss } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
+import { X } from "@/components/icons/x";
 
 export const metadata: Metadata = {
 	title: "About | Oooh, Spooky Podcast",
@@ -60,34 +61,34 @@ export default function AboutPage() {
 						<h2 className="text-3xl font-bold mb-6 text-center text-primary spooky-title">
 							Follow Us
 						</h2>
-						<div className="flex justify-center space-x-8">
-							<Link
+						<div className="flex justify-center space-x-8 items-center">
+							<a
 								href="https://twitter.com/OoohSpooky"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="Twitter"
-								className="text-primary hover:text-accent"
+								className="text-primary hover:text-accent hover:scale-110 transition-all duration-300"
 							>
-								<Twitter size={32} />
-							</Link>
-							<Link
+								<X className="size-6 " fill="#d7d700" />
+							</a>
+							<a
 								href="https://www.instagram.com/ooohspooky/"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="Instagram"
-								className="text-primary hover:text-accent"
+								className="text-primary hover:text-accent hover:scale-110 transition-all duration-300"
 							>
 								<Instagram size={32} />
-							</Link>
-							<Link
+							</a>
+							<a
 								href="https://www.facebook.com/ooohspooky/"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="Facebook"
-								className="text-primary hover:text-accent"
+								className="text-primary hover:text-accent hover:scale-110 transition-all duration-300"
 							>
 								<Facebook size={32} />
-							</Link>
+							</a>
 							{/* <Link
 								href="https://www.youtube.com/@OoohSpooky"
 								target="_blank"
@@ -97,15 +98,15 @@ export default function AboutPage() {
 							>
 								<Youtube size={32} />
 							</Link> */}
-							<Link
+							<a
 								href="https://ooohspooky.libsyn.com/rss"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="RSS Feed"
-								className="text-primary hover:text-accent"
+								className="text-primary hover:text-accent hover:scale-110 transition-all duration-300"
 							>
 								<Rss size={32} />
-							</Link>
+							</a>
 						</div>
 					</div>
 				</div>

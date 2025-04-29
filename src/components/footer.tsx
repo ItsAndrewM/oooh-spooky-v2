@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Facebook, Instagram, Twitter, Rss } from "lucide-react";
+import { X } from "./icons/x";
 
 export default function Footer() {
 	return (
@@ -35,59 +36,64 @@ export default function Footer() {
 							<Link href="/about" prefetch>
 								About
 							</Link>
-							<Link
+							<a
 								href="https://www.patreon.com/ooohspooky"
 								target="_blank"
 								rel="noopener noreferrer"
 							>
 								Patreon
-							</Link>
+							</a>
 						</div>
 					</div>
 
 					<div>
 						<h3 className="text-xl font-bold mb-4 text-primary">Follow Us</h3>
-						<div className="social-links text-primary">
-							<Link
+						<div className="social-links text-primary flex justify-start items-center gap-4">
+							<a
 								href="https://twitter.com/OoohSpooky"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="Twitter"
+								className="hover:scale-110 transition-all duration-300"
 							>
-								<Twitter />
-							</Link>
-							<Link
+								<X className="size-5" fill="#d7d700" />
+							</a>
+							<a
 								href="https://www.instagram.com/ooohspooky/"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="Instagram"
+								className="hover:scale-110 transition-all duration-300"
 							>
 								<Instagram />
-							</Link>
-							<Link
+							</a>
+							<a
 								href="https://www.facebook.com/ooohspooky/"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="Facebook"
+								className="hover:scale-110 transition-all duration-300"
 							>
 								<Facebook />
-							</Link>
+							</a>
 							{/* <Link
 								href="https://www.youtube.com/@OoohSpooky"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="YouTube"
+								className="hover:scale-110 transition-all duration-300"
 							>
 								<Youtube />
 							</Link> */}
-							<Link
+							<a
 								href="https://ooohspooky.libsyn.com/rss"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="RSS Feed"
+								className="hover:scale-110 transition-all duration-300"
 							>
 								<Rss />
-							</Link>
+							</a>
 						</div>
 					</div>
 				</div>

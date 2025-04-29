@@ -28,13 +28,13 @@ export const SearchEpisodes = () => {
 	}, [query, router]);
 
 	return (
-		<Card className="w-full p-1">
-			<div className="flex items-center gap-2 relative">
+		<Card className="w-full p-1 border-muted">
+			<div className="flex items-center gap-2 relative ">
 				<Search className="size-4 absolute left-2 top-1/2 -translate-y-1/2 text-muted-foreground" />
 				<Input
 					type="text"
 					placeholder="Search episodes"
-					className="border-none ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 pl-8"
+					className=" ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 pl-8 outline-0 "
 					onChange={handleOnChange}
 				/>
 			</div>
