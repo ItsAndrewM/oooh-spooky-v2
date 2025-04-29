@@ -126,32 +126,6 @@ export default async function Home() {
 				</div>
 			</div>
 
-			{/* Introduction Section - New SEO-focused content */}
-			<section className="py-12 bg-muted-background">
-				<div className="container mx-auto px-4">
-					<div className="max-w-3xl mx-auto text-center">
-						<h2 className="text-3xl font-bold mb-6 text-primary">
-							Welcome to Oooh, Spooky
-						</h2>
-						<p className="text-lg mb-4">
-							<strong>Oooh, Spooky</strong> is a weekly comedy podcast where
-							three Melbourne comedians explore the paranormal, supernatural,
-							and downright bizarre.
-						</p>
-						<p className="text-lg mb-4">
-							Adam Knox, Luka Muller, and Peter Jones are your brave guides into
-							the world of unexplained mysteries, ghostly encounters, and UFO
-							sightings - all with their signature humor and skeptical approach.
-						</p>
-						<p className="text-lg">
-							Whether you&apos;re a believer in the paranormal or just looking
-							for a good laugh, Oooh, Spooky delivers both chills and chuckles
-							in equal measure.
-						</p>
-					</div>
-				</div>
-			</section>
-
 			{/* Latest Episodes */}
 			<section className="py-16 bg-background">
 				<div className="container mx-auto px-4">

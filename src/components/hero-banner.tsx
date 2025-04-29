@@ -23,16 +23,9 @@ export default function HeroBanner() {
 							OOOH, SPOOKY
 						</h1>
 						<p className="text-xl md:text-2xl mb-8 text-white">
-							Each week comedians Adam Knox, Luka Muller and Peter Jones from
-							Melbourne, Australia read five unexplained mysteries from a
-							haunted book of the paranormal. They explore ghosts, UFOs, bizarre
-							creatures, and often a group of easily excited villagers
-							who&apos;ve just seen something slightly weird, but not really
-							that weird.
-						</p>
-						<p className="text-lg md:text-xl mb-8 text-white">
-							Listener beware! You&apos;re in for a chuckle with the Oooh,
-							Spooky podcast.
+							Each week Adam Knox, Luka Muller and Peter Jones read five
+							unexplained mysteries from a big book of Mysteries of the
+							Unexplained.
 						</p>
 						<div className="flex flex-col sm:flex-row gap-4 justify-center">
 							<Button asChild>
@@ -44,13 +37,13 @@ export default function HeroBanner() {
 								asChild
 								className="bg-black text-primary hover:bg-gray-900 font-bold py-2 px-6 rounded-md transition-colors duration-300"
 							>
-								<Link
+								<a
 									href="https://www.patreon.com/ooohspooky"
 									target="_blank"
 									rel="noopener noreferrer"
 								>
 									Join Our Patreon
-								</Link>
+								</a>
 							</Button>
 						</div>
 					</div>
