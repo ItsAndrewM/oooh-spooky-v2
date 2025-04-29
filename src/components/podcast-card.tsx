@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import {
 	Card,
-	CardContent,
 	CardDescription,
 	CardFooter,
 	CardHeader,

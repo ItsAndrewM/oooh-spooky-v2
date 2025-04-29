@@ -1,15 +1,3 @@
-import {
-	Card,
-	CardContent,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
-import { Facebook, Instagram, Twitter, Globe, Youtube } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { TikTok } from "./icons/tiktok";
-import { X } from "./icons/x";
 import { HostCard } from "./host-card";
 
 const hosts = [

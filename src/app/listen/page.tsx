@@ -1,16 +1,9 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { Lock } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import {
-	Card,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
+
 import { platforms } from "@/lib/utils";
 import { PodcastCard } from "@/components/podcast-card";
 

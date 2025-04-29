@@ -1,5 +1,4 @@
 import { Button } from "./ui/button";
-import Link from "next/link";
 const featuredVideos = [
 	{
 		id: 1,

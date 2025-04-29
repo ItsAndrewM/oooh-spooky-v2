@@ -1,8 +1,7 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import HostsSection from "@/components/hosts-section";
-import { Facebook, Instagram, Twitter, Rss } from "lucide-react";
-import Link from "next/link";
+import { Facebook, Instagram, Rss } from "lucide-react";
 import { Metadata } from "next";
 import { X } from "@/components/icons/x";
 

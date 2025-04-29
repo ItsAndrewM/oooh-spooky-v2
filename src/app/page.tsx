@@ -1,5 +1,5 @@
 import { getPodcastEpisodes } from "@/lib/podcast";
-import { Facebook, Instagram, Rss, Twitter } from "lucide-react";
+import { Facebook, Instagram, Rss } from "lucide-react";
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
