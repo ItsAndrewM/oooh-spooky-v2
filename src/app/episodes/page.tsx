@@ -8,18 +8,24 @@ import PodcastListSkeleton from "@/components/podcast-list-skeleton";
 export const metadata: Metadata = {
 	title: "All Episodes | Oooh, Spooky Podcast",
 	description:
-		"Browse and listen to all episodes of Oooh, Spooky - the hilarious comedy horror podcast with Adam Knox, Luka Muller and Peter Jones.",
+		"Browse and listen to all episodes of Oooh, Spooky podcast - the comedy horror podcast featuring ghost stories, UFOs, and paranormal mysteries with Adam Knox, Luka Muller and Peter Jones.",
 	keywords: [
-		"podcast episodes",
-		"Oooh Spooky episodes",
-		"comedy horror podcast",
-		"scary stories",
-		"podcast archive",
+		"Oooh, Spooky episodes",
+		"Oooh, Spooky podcast",
+		"comedy horror podcast episodes",
+		"ghost story podcast",
+		"paranormal podcast episodes",
+		"UFO stories podcast",
+		"Adam Knox podcast",
+		"Luka Muller podcast",
+		"Peter Jones podcast",
+		"Melbourne comedy podcast",
+		"spooky podcast archive",
 	],
 	openGraph: {
 		title: "All Episodes | Oooh, Spooky Podcast",
 		description:
-			"Browse and listen to all episodes of Oooh, Spooky - the hilarious comedy horror podcast with Adam Knox, Luka Muller and Peter Jones.",
+			"Browse and listen to all episodes of Oooh, Spooky podcast - the comedy horror podcast featuring ghost stories, UFOs, and paranormal mysteries with Adam Knox, Luka Muller and Peter Jones.",
 		url: "https://ooohspooky.com/episodes",
 		type: "website",
 	},
@@ -38,8 +44,13 @@ export default async function EpisodesPage(props: PageParams) {
 			<section className="py-16 flex-grow">
 				<div className="container mx-auto px-4 flex flex-col gap-4">
 					<h1 className="text-4xl font-bold mb-12 text-center spooky-title text-primary">
-						All Episodes
+						All Oooh, Spooky Episodes
 					</h1>
+					<p className="text-lg text-center max-w-3xl mx-auto mb-8">
+						Explore all episodes of the Oooh, Spooky podcast where Adam Knox,
+						Luka Muller, and Peter Jones dive into the mysterious, paranormal,
+						and unexplained with comedy and humor.
+					</p>
 					<SearchEpisodes />
 					<Suspense fallback={<PodcastListSkeleton />}>
 						<PodcastListContainer search={search?.search || ""} />

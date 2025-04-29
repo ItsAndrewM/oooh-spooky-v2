@@ -10,27 +10,36 @@ import PodcastGrid from "@/components/podcast-grid";
 import HostsSection from "@/components/hosts-section";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
-import { PodcastJsonLd, OrganizationJsonLd } from "./components/json-ld";
+import {
+	PodcastJsonLd,
+	OrganizationJsonLd,
+	LocalBusinessJsonLd,
+} from "./components/json-ld";
 import { CallToAction } from "@/components/call-to-action";
 import { X } from "@/components/icons/x";
 
 export const metadata: Metadata = {
-	title: "Oooh, Spooky - The Comedy Horror Podcast",
+	title: "Oooh, Spooky - Comedy Horror Podcast from Melbourne, Australia",
 	description:
-		"Listen to Oooh, Spooky - the #1 comedy horror podcast hosted by Adam Knox, Luka Muller and Peter Jones. New episodes weekly!",
+		"Oooh, Spooky podcast with Adam Knox, Luka Muller, and Peter Jones - exploring paranormal mysteries, ghost stories, and unexplained phenomena with comedy and humor. Listen to new episodes weekly!",
 	keywords: [
-		"horror comedy podcast",
-		"Oooh Spooky",
-		"scary stories",
-		"comedy podcast",
+		"Oooh, Spooky",
+		"Oooh, Spooky podcast",
 		"Adam Knox",
 		"Luka Muller",
 		"Peter Jones",
+		"Melbourne comedians",
+		"Australian comedy podcast",
+		"paranormal comedy",
+		"ghost stories podcast",
+		"unexplained mysteries",
+		"comedy horror podcast",
+		"best spooky podcast",
 	],
 	openGraph: {
-		title: "Oooh, Spooky - The Comedy Horror Podcast",
+		title: "Oooh, Spooky - Comedy Horror Podcast from Melbourne, Australia",
 		description:
-			"Listen to Oooh, Spooky - the #1 comedy horror podcast hosted by Adam Knox, Luka Muller and Peter Jones. New episodes weekly!",
+			"Oooh, Spooky podcast with Adam Knox, Luka Muller, and Peter Jones - exploring paranormal mysteries, ghost stories, and unexplained phenomena with comedy and humor. Listen to new episodes weekly!",
 		url: "https://ooohspooky.com",
 		type: "website",
 	},
@@ -43,8 +52,8 @@ export default async function Home() {
 		<main className="min-h-screen flex flex-col">
 			<PodcastJsonLd
 				url="https://ooohspooky.com"
-				name="Oooh, Spooky - The Comedy Horror Podcast"
-				description="A comedy podcast that explores the mysterious and unexplained with Adam Knox, Luka Muller, and Peter Jones."
+				name="Oooh, Spooky - Comedy Horror Podcast"
+				description="Three brave explorers of the unknown read excerpts from a haunted book of the paranormal. Adam Knox, Luka Muller and Peter Jones are comedians from Melbourne, Australia whose souls are on the line for the podcast about ghosts, ghouls, UFOs and often a group of easily excited villagers who've just seen something slightly weird, but not really that weird. Listener beware! You're in for a chuckle."
 				author="Adam Knox, Luka Muller, Peter Jones"
 				imageUrl="https://ooohspooky.com/oooh-spooky.png"
 			/>
@@ -52,7 +61,7 @@ export default async function Home() {
 				name="Oooh, Spooky Podcast"
 				url="https://ooohspooky.com"
 				logo="https://ooohspooky.com/oooh-spooky.png"
-				description="A comedy podcast that explores the mysterious and unexplained."
+				description="A comedy podcast that explores the mysterious and unexplained. Hosted by Adam Knox, Luka Muller, and Peter Jones from Melbourne, Australia."
 				sameAs={[
 					"https://twitter.com/OoohSpooky",
 					"https://www.instagram.com/ooohspooky/",
@@ -60,6 +69,7 @@ export default async function Home() {
 					"https://ooohspooky.libsyn.com/rss",
 				]}
 			/>
+			<LocalBusinessJsonLd />
 			<Header />
 			<HeroBanner />
 
@@ -115,6 +125,32 @@ export default async function Home() {
 					</div>
 				</div>
 			</div>
+
+			{/* Introduction Section - New SEO-focused content */}
+			<section className="py-12 bg-muted-background">
+				<div className="container mx-auto px-4">
+					<div className="max-w-3xl mx-auto text-center">
+						<h2 className="text-3xl font-bold mb-6 text-primary">
+							Welcome to Oooh, Spooky
+						</h2>
+						<p className="text-lg mb-4">
+							<strong>Oooh, Spooky</strong> is a weekly comedy podcast where
+							three Melbourne comedians explore the paranormal, supernatural,
+							and downright bizarre.
+						</p>
+						<p className="text-lg mb-4">
+							Adam Knox, Luka Muller, and Peter Jones are your brave guides into
+							the world of unexplained mysteries, ghostly encounters, and UFO
+							sightings - all with their signature humor and skeptical approach.
+						</p>
+						<p className="text-lg">
+							Whether you're a believer in the paranormal or just looking for a
+							good laugh, Oooh, Spooky delivers both chills and chuckles in
+							equal measure.
+						</p>
+					</div>
+				</div>
+			</section>
 
 			{/* Latest Episodes */}
 			<section className="py-16 bg-background">

@@ -8,7 +8,7 @@ export default function HeroBanner() {
 			<div className="absolute inset-0">
 				<Image
 					src="/images/hero-image.png"
-					alt="Spooky forest with cabin"
+					alt="Oooh, Spooky Podcast - Comedy horror podcast with Adam Knox, Luka Muller and Peter Jones"
 					fill
 					priority
 					className="object-cover brightness-50"
@@ -23,9 +23,16 @@ export default function HeroBanner() {
 							OOOH, SPOOKY
 						</h1>
 						<p className="text-xl md:text-2xl mb-8 text-white">
-							Each week Adam Knox, Luka Muller and Peter Jones read five
-							unexplained mysteries from a big book of Mysteries of the
-							Unexplained.
+							Each week comedians Adam Knox, Luka Muller and Peter Jones from
+							Melbourne, Australia read five unexplained mysteries from a
+							haunted book of the paranormal. They explore ghosts, UFOs, bizarre
+							creatures, and often a group of easily excited villagers
+							who&apos;ve just seen something slightly weird, but not really
+							that weird.
+						</p>
+						<p className="text-lg md:text-xl mb-8 text-white">
+							Listener beware! You&apos;re in for a chuckle with the Oooh,
+							Spooky podcast.
 						</p>
 						<div className="flex flex-col sm:flex-row gap-4 justify-center">
 							<Button asChild>
