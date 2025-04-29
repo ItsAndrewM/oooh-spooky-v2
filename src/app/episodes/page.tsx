@@ -21,6 +21,9 @@ export const metadata: Metadata = {
 		"Peter Jones podcast",
 		"Melbourne comedy podcast",
 		"spooky podcast archive",
+		"all episodes",
+		"Oooh, Spooky podcast episodes",
+		"all Oooh, Spooky episodes",
 	],
 	openGraph: {
 		title: "All Episodes | Oooh, Spooky Podcast",
