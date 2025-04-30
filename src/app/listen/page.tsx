@@ -3,7 +3,7 @@ import Footer from "@/components/footer";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-
+import { Metadata } from "next";
 import { platforms } from "@/lib/utils";
 import { PodcastCard } from "@/components/podcast-card";
 
@@ -55,6 +55,22 @@ const podcasts = [
 		isPremium: true,
 	},
 ];
+
+export const metadata: Metadata = {
+	title: "Listen | Oooh, Spooky Podcast",
+	description:
+		"Listen to the Oooh, Spooky podcast on your favorite platform. Explore ghost stories, unexplained mysteries, and paranormal phenomena with a comedic twist.",
+	alternates: {
+		canonical: "https://ooohspooky.com/listen",
+	},
+	openGraph: {
+		title: "Listen | Oooh, Spooky Podcast",
+		description:
+			"Listen to the Oooh, Spooky podcast on your favorite platform. Explore ghost stories, unexplained mysteries, and paranormal phenomena with a comedic twist.",
+		url: "https://ooohspooky.com/listen",
+		type: "website",
+	},
+};
 
 export default function ListenPage() {
 	return (

@@ -30,6 +30,9 @@ export const metadata: Metadata = {
 		url: "https://ooohspooky.com/about",
 		type: "website",
 	},
+	alternates: {
+		canonical: "https://ooohspooky.com/about",
+	},
 };
 
 export default function AboutPage() {

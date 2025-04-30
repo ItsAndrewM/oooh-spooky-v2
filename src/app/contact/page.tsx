@@ -9,6 +9,31 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Contact Us | Oooh, Spooky Podcast",
+	description:
+		"Get in touch with the Oooh, Spooky podcast team. Have a spooky story to share? Want to suggest a topic? Contact us now!",
+	keywords: [
+		"contact",
+		"Oooh Spooky contact",
+		"podcast contact",
+		"suggest topics",
+		"spooky stories",
+	],
+	alternates: {
+		canonical: "https://ooohspooky.com/contact",
+	},
+	openGraph: {
+		title: "Contact Us | Oooh, Spooky Podcast",
+		description:
+			"Get in touch with the Oooh, Spooky podcast team. Have a spooky story to share? Want to suggest a topic? Contact us now!",
+		url: "https://ooohspooky.com/contact",
+		type: "website",
+	},
+};
+
 export default function ContactPage() {
 	const contactFormRef = useRef<HTMLDivElement>(null);
 

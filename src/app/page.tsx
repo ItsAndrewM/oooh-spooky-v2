@@ -43,6 +43,9 @@ export const metadata: Metadata = {
 		url: "https://ooohspooky.com",
 		type: "website",
 	},
+	alternates: {
+		canonical: "https://ooohspooky.com",
+	},
 };
 
 export default async function Home() {

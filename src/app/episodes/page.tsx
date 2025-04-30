@@ -5,6 +5,7 @@ import PodcastListContainer from "@/components/podcast-list-container";
 import { Suspense } from "react";
 import { SearchEpisodes } from "@/components/search-episodes";
 import PodcastListSkeleton from "@/components/podcast-list-skeleton";
+
 export const metadata: Metadata = {
 	title: "All Episodes | Oooh, Spooky Podcast",
 	description:
@@ -31,6 +32,9 @@ export const metadata: Metadata = {
 			"Browse and listen to all episodes of Oooh, Spooky podcast - the comedy horror podcast featuring ghost stories, UFOs, and paranormal mysteries with Adam Knox, Luka Muller and Peter Jones.",
 		url: "https://ooohspooky.com/episodes",
 		type: "website",
+	},
+	alternates: {
+		canonical: "https://ooohspooky.com/episodes",
 	},
 };
 
