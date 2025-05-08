@@ -51,7 +51,7 @@ export async function generateMetadata(props: {
 		openGraph: {
 			title: episode.title,
 			description: cleanDescription,
-			url: `https://ooohspooky.com/episodes/${episode.guid}`,
+			url: `https://www.ooohspooky.com/episodes/${episode.guid}`,
 			type: "article",
 			images: [
 				{

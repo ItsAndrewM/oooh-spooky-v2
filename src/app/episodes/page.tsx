@@ -30,11 +30,11 @@ export const metadata: Metadata = {
 		title: "All Episodes | Oooh, Spooky Podcast",
 		description:
 			"Browse and listen to all episodes of Oooh, Spooky podcast - the comedy horror podcast featuring ghost stories, UFOs, and paranormal mysteries with Adam Knox, Luka Muller and Peter Jones.",
-		url: "https://ooohspooky.com/episodes",
+		url: "https://www.ooohspooky.com/episodes",
 		type: "website",
 	},
 	alternates: {
-		canonical: "https://ooohspooky.com/episodes",
+		canonical: "https://www.ooohspooky.com/episodes",
 	},
 };
 

@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
 			allow: "/",
 			disallow: ["/api/", "/_next/"],
 		},
-		sitemap: "https://ooohspooky.com/sitemap.xml",
-		host: "https://ooohspooky.com",
+		sitemap: "https://www.ooohspooky.com/sitemap.xml",
+		host: "https://www.ooohspooky.com",
 	};
 }

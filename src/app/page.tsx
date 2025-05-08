@@ -40,11 +40,11 @@ export const metadata: Metadata = {
 		title: "Oooh, Spooky - Comedy Horror Podcast from Melbourne, Australia",
 		description:
 			"Oooh, Spooky podcast with Adam Knox, Luka Muller, and Peter Jones - exploring paranormal mysteries, ghost stories, and unexplained phenomena with comedy and humor. Listen to new episodes weekly!",
-		url: "https://ooohspooky.com",
+		url: "https://www.ooohspooky.com",
 		type: "website",
 	},
 	alternates: {
-		canonical: "https://ooohspooky.com",
+		canonical: "https://www.ooohspooky.com",
 	},
 };
 
@@ -54,16 +54,16 @@ export default async function Home() {
 	return (
 		<main className="min-h-screen flex flex-col">
 			<PodcastJsonLd
-				url="https://ooohspooky.com"
+				url="https://www.ooohspooky.com"
 				name="Oooh, Spooky - Comedy Horror Podcast"
 				description="Three brave explorers of the unknown read excerpts from a haunted book of the paranormal. Adam Knox, Luka Muller and Peter Jones are comedians from Melbourne, Australia whose souls are on the line for the podcast about ghosts, ghouls, UFOs and often a group of easily excited villagers who've just seen something slightly weird, but not really that weird. Listener beware! You're in for a chuckle."
 				author="Adam Knox, Luka Muller, Peter Jones"
-				imageUrl="https://ooohspooky.com/oooh-spooky.png"
+				imageUrl="https://www.ooohspooky.com/oooh-spooky.png"
 			/>
 			<OrganizationJsonLd
 				name="Oooh, Spooky Podcast"
-				url="https://ooohspooky.com"
-				logo="https://ooohspooky.com/oooh-spooky.png"
+				url="https://www.ooohspooky.com"
+				logo="https://www.ooohspooky.com/oooh-spooky.png"
 				description="A comedy podcast that explores the mysterious and unexplained. Hosted by Adam Knox, Luka Muller, and Peter Jones from Melbourne, Australia."
 				sameAs={[
 					"https://twitter.com/OoohSpooky",

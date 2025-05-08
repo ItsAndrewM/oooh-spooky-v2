@@ -27,11 +27,11 @@ export const metadata: Metadata = {
 		title: "About | Oooh, Spooky Podcast",
 		description:
 			"Learn about Oooh, Spooky - The comedy horror podcast hosted by Adam Knox, Luka Muller, and Peter Jones from Melbourne, Australia. Exploring ghosts, UFOs, mysteries and paranormal stories weekly.",
-		url: "https://ooohspooky.com/about",
+		url: "https://www.ooohspooky.com/about",
 		type: "website",
 	},
 	alternates: {
-		canonical: "https://ooohspooky.com/about",
+		canonical: "https://www.ooohspooky.com/about",
 	},
 };
 

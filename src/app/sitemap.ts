@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getPodcastEpisodes } from "@/lib/podcast";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-	const baseUrl = "https://ooohspooky.com";
+	const baseUrl = "https://www.ooohspooky.com";
 
 	// Static routes
 	const routes = [

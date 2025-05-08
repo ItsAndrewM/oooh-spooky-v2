@@ -214,7 +214,7 @@ export function LocalBusinessJsonLd() {
 		"@context": "https://schema.org",
 		"@type": "LocalBusiness",
 		name: "Oooh, Spooky Podcast Studio",
-		image: "https://ooohspooky.com/oooh-spooky.png",
+		image: "https://www.ooohspooky.com/oooh-spooky.png",
 		priceRange: "$$",
 		description:
 			"Home studio of the Oooh, Spooky comedy horror podcast featuring Adam Knox, Luka Muller, and Peter Jones.",

@@ -13,13 +13,13 @@ export const metadata: Metadata = {
 		"spooky stories",
 	],
 	alternates: {
-		canonical: "https://ooohspooky.com/contact",
+		canonical: "https://www.ooohspooky.com/contact",
 	},
 	openGraph: {
 		title: "Contact Us | Oooh, Spooky Podcast",
 		description:
 			"Get in touch with the Oooh, Spooky podcast team. Have a spooky story to share? Want to suggest a topic? Contact us now!",
-		url: "https://ooohspooky.com/contact",
+		url: "https://www.ooohspooky.com/contact",
 		type: "website",
 	},
 };

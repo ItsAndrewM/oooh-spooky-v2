@@ -18,7 +18,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://ooohspooky.com"),
+	metadataBase: new URL("https://www.ooohspooky.com"),
 	title: {
 		template: "%s | Oooh, Spooky Podcast",
 		default:
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 	publisher: "Oooh, Spooky Productions",
 	category: "Comedy",
 	alternates: {
-		canonical: "https://ooohspooky.com",
+		canonical: "https://www.ooohspooky.com",
 		types: {
 			"application/rss+xml": "https://ooohspooky.libsyn.com/rss",
 		},
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
 			"Oooh, Spooky - Comedy Horror Podcast with Adam Knox, Luka Muller and Peter Jones",
 		description:
 			"Oooh, Spooky Podcast - Join comedians Adam Knox, Luka Muller and Peter Jones as they explore paranormal mysteries, ghosts, UFOs and unexplained phenomena with humor. New episodes weekly!",
-		url: "https://ooohspooky.com",
+		url: "https://www.ooohspooky.com",
 		siteName: "Oooh, Spooky Podcast",
 		images: [
 			{

@@ -61,13 +61,13 @@ export const metadata: Metadata = {
 	description:
 		"Listen to the Oooh, Spooky podcast on your favorite platform. Explore ghost stories, unexplained mysteries, and paranormal phenomena with a comedic twist.",
 	alternates: {
-		canonical: "https://ooohspooky.com/listen",
+		canonical: "https://www.ooohspooky.com/listen",
 	},
 	openGraph: {
 		title: "Listen | Oooh, Spooky Podcast",
 		description:
 			"Listen to the Oooh, Spooky podcast on your favorite platform. Explore ghost stories, unexplained mysteries, and paranormal phenomena with a comedic twist.",
-		url: "https://ooohspooky.com/listen",
+		url: "https://www.ooohspooky.com/listen",
 		type: "website",
 	},
 };
