@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
 			new URL("https://static.libsyn.com/**"),
 		],
 	},
+	turbopack: {},
 };
 
 export default withSentryConfig(nextConfig, {
