@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import Analytics from "@/components/analytics";
@@ -9,6 +9,10 @@ import { Toaster } from "sonner";
 import { HighlightInit } from "@highlight-run/next/client";
 
 const inter = Inter({ subsets: ["latin"] });
+const jetbrainsMono = JetBrains_Mono({
+	subsets: ["latin"],
+	variable: "--font-jetbrains-mono",
+});
 
 export const viewport: Viewport = {
 	width: "device-width",
@@ -176,7 +180,7 @@ export default function RootLayout({
 					<meta name="apple-mobile-web-app-title" content="Oooh, Spooky" />
 					<meta name="application-name" content="Oooh, Spooky" />
 				</head>
-				<body className={inter.className}>
+				<body className={`${inter.className} ${jetbrainsMono.variable}`}>
 					<ThemeProvider
 						attribute="class"
 						defaultTheme="dark"

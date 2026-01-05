@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
 		remotePatterns: [
 			new URL("https://ooohspooky.libsyn.com/**"),
 			new URL("https://static.libsyn.com/**"),
+			new URL("https://dinocode.app/**"),
 		],
 	},
 	turbopack: {},

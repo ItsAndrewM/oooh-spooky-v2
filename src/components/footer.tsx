@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Instagram, Rss } from "lucide-react";
 import { X } from "./icons/x";
 
@@ -19,6 +20,23 @@ export default function Footer() {
 						<p className="text-gray-400">
 							© {new Date().getFullYear()} Oooh, Spooky
 						</p>
+						<a
+							href="https://dinocode.app"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="inline-flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity mt-2"
+						>
+							<Image
+								src="https://dinocode.app/images/dinocode-logo-outline-white.svg"
+								alt="dinocode logo"
+								width={32}
+								height={32}
+								className="h-8 w-auto"
+							/>
+							<span className="font-[family-name:var(--font-jetbrains-mono)] text-sm">
+								Built by dinocode
+							</span>
+						</a>
 					</div>
 
 					<div>
